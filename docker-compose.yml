@@ -3,8 +3,6 @@ services:
   api:
     depends_on: 
       - dynamodb
-    links:
-      - dynamodb
     container_name: golang-fiber-api
     build:
       context: "./api"
@@ -20,16 +18,13 @@ services:
   app:
     depends_on: 
       - api
-    links:
-      - api
-      - dynamodb
     build:
       context: "./ui"
       dockerfile: Dockerfile
     ports:
       - 3000:3000
     environment:
-        REACT_APP_SERVER_ENDPOINT: "http://api:8080"
+        REACT_APP_SERVER_ENDPOINT: "http://localhost:8080"
   dynamodb:
     command: "-jar DynamoDBLocal.jar -sharedDb -optimizeDbBeforeStartup -dbPath ./data"
     image: "amazon/dynamodb-local:latest"
