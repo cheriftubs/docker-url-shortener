@@ -7,7 +7,7 @@ const cors = require('cors');
 const app = express();
 const port = 8080;
 
-const tableName = "UrlShortener";
+const tableName = process.env.TABLE_NAME || "UrlShortener";
 
 var created = false;
 

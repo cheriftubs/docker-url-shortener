@@ -10,6 +10,7 @@ services:
     ports:
       - 8080:8080
     environment:
+      TABLE_NAME: "UrlShortener"
       DYNAMODB_ENDPOINT: "http://dynamodb:8000"
       ENVIRONMENT: "local"
       AWS_ACCESS_KEY_ID: "DUMMYIDEXAMPLE"
