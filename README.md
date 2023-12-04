@@ -67,3 +67,29 @@ http://localhost:8080/urls/<PATH_VALUE_FROM_STEP2>
 "# docker-url-shortener" 
 "# docker-url-shortener" 
 "# docker-url-shortener" 
+
+## 💨 AWS
+1. Lambda Functions
+- The Get Item Lambda Function can be created using the Zip file /api/AWS Lambda/getItemLambda.zip
+- The Post Item Lambda Function can be created using the Zip file /api/AWS Lambda/postItemLambda.zip
+- The policy of the Get Item Lambda Function should include the get item and update item rights as following:
+```
+{
+    "Effect": "Allow",
+    "Action": "dynamodb:GetItem",
+    "Resource": "arn:aws:dynamodb:eu-west-1:423613268918:table/{table_name}"
+},
+{
+    "Effect": "Allow",
+    "Action": "dynamodb:UpdateItem",
+    "Resource": "arn:aws:dynamodb:eu-west-1:423613268918:table/{table_name}"
+}
+```
+- The policy of the Post Item Lambda Function should include the put item right as following:
+```
+{
+    "Effect": "Allow",
+    "Action": "dynamodb:PutItem",
+    "Resource": "arn:aws:dynamodb:eu-west-1:423613268918:table/{table_name}"
+}
+```
