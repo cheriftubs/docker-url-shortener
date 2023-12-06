@@ -93,3 +93,10 @@ http://localhost:8080/urls/<PATH_VALUE_FROM_STEP2>
     "Resource": "arn:aws:dynamodb:eu-west-1:423613268918:table/{table_name}"
 }
 ```
+2. API Gateway
+- Create needed POST and GET methods and enable CORS
+3. S3
+- Upload the UI to an S3 bucket
+3. Cloud Front
+- Create a distribution and assign an origin access control to it
+- add needed rights to the S3 bucket policy
