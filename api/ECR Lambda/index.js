@@ -91,6 +91,12 @@ app.post('/urls', async (req, res) => {
 });
 
 // Get all shortened URLs
+app.get('/', async (req, res) => {
+  console.info('GET /: Health check OK!');
+  res.status(200).json({"Response": "This is the UrlShortener API"});
+});
+
+// Get all shortened URLs
 app.get('/urls', async (req, res) => {
   console.info('Incomming GET request for all URLs');
   const { url } = req.body;
