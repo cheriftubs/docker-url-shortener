@@ -17,9 +17,7 @@ app.use(bodyParser.json());
 
 // Configure AWS DynamoDB
 AWS.config.update({
-  region: process.env.REGION || "eu-west-1",
-  accessKeyId: process.env.AWS_ACCESS_KEY_ID || 'DUMMYIDEXAMPLE',
-  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY || 'DUMMYEXAMPLEKEY'
+  region: process.env.REGION || "eu-west-1"
 });
 
 function generateRandomString(length) {
